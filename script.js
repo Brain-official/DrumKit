@@ -6,17 +6,24 @@ for(let i = 0; i < firstButton.length; i++){
     firstButton[i].addEventListener("click", clickEvent)
 }
 
+
+
 function clickEvent() {
     var buttonInnerHtml = this.innerHTML;
     makeSound(buttonInnerHtml)
+
+    buttonAnimation(buttonInnerHtml)
     
 }
+
 
 
 //Detect the key pressed on keyboard
 document.addEventListener("keydown", function(event){
 
     makeSound(event.key)
+
+    buttonAnimation(event.key)
 })
 
 
@@ -63,6 +70,34 @@ function makeSound(key) {
             break;
     }
 }
+
+
+
+
+function buttonAnimation(currentKey) {
+    var selectedButton = document.querySelector("." + currentKey);
+    selectedButton.classList.add("pressed");
+
+
+    //This function removes the class "pressed" from the clicked button after a period of time.
+    setTimeout(function() {
+        selectedButton.classList.remove("pressed");
+    }, 10)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Calculator higher order function
@@ -124,6 +159,29 @@ function EmployeeRecords(name, age, hasWorkPermit,  languages) {
 // employee.moveSuitcase();
 
 
+
+
+
+
+//Callback function
+// function anotherAddEventListener(typeOfEvent, callback) {
+
+
+//     var eventThatHappened ={
+//         eventType: "KeyPress",
+//         key: "w",
+//         noOfSeconds: 3,
+//     }
+
+//     if(eventThatHappened.eventType === typeOfEvent){
+//         callback(eventThatHappened)
+//     }
+// }
+
+
+// anotherAddEventListener("keyPress", function(event){
+//     console.log(event)
+// })
 
 
 
