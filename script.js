@@ -1,5 +1,5 @@
 
-var audio = new Audio("sounds/tom-1.mp3")
+
 
 var firstButton = document.querySelectorAll(".drum")
 for(let i = 0; i < firstButton.length; i++){
@@ -7,7 +7,47 @@ for(let i = 0; i < firstButton.length; i++){
 }
 
 function clickEvent() {
-    this.style.color = "white"
+    var buttonInnerHtml = this.innerHTML;
+
+    switch (buttonInnerHtml) {
+        case "w":
+            var audio = new Audio("sounds/crash.mp3")
+            audio.play()
+            break;
+        
+        case "a":
+            var audio = new Audio("sounds/kick.mp3")
+            audio.play()
+            break;
+        
+        case "s":
+            var audio = new Audio("sounds/snare.mp3")
+            audio.play()
+            break;
+
+        case "d":
+            var audio = new Audio("sounds/tom-1.mp3")
+            audio.play()
+            break;
+        
+        case "j":
+            var audio = new Audio("sounds/tom-2.mp3")
+            audio.play()
+            break;
+        
+        case "k":
+            var audio = new Audio("sounds/tom-3.mp3")
+            audio.play()
+            break;    
+        
+        case "l":
+            var audio = new Audio("sounds/tom-4.mp3")
+            audio.play()
+            break;        
+    
+        default:
+            break;
+    }
 }
 
 
@@ -40,15 +80,36 @@ function clickEvent() {
 
 
 //Javascript object
+// var employee = {
+//     name : "Timmy",
+//     age : 19,
+//     hasWorkPermit: true,
+//     languages : ["french", "english", "German"]
+// }
 
-var employee = {
-    name : "Timmy",
-    age : 19,
-    hasWorkPermit: true,
-    languages : ["french", "english", "German"]
+// console.log(employee.age)
+
+
+
+
+//Constructor function
+function EmployeeRecords(name, age, hasWorkPermit,  languages) {
+    this.name = name;
+    this.age = age;
+    this.hasWorkPermit = hasWorkPermit;
+    this.languages = languages;
+
+    //Method
+    this.moveSuitcase = function() {
+        alert("May I move your  suitcase?")
+        // picksuitcase();
+        // move();
+    }   
 }
 
-console.log(employee.age)
+//Initialize the EmployeeRecords
+var employee = new EmployeeRecords("Jones", 28, true, ["english", "french"])
+employee.moveSuitcase();
 
 
 
