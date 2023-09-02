@@ -1,6 +1,6 @@
 
 
-
+//Detect button click events
 var firstButton = document.querySelectorAll(".drum")
 for(let i = 0; i < firstButton.length; i++){
     firstButton[i].addEventListener("click", clickEvent)
@@ -8,8 +8,22 @@ for(let i = 0; i < firstButton.length; i++){
 
 function clickEvent() {
     var buttonInnerHtml = this.innerHTML;
+    makeSound(buttonInnerHtml)
+    
+}
 
-    switch (buttonInnerHtml) {
+
+//Detect the key pressed on keyboard
+document.addEventListener("keydown", function(event){
+
+    makeSound(event.key)
+})
+
+
+
+function makeSound(key) {
+
+    switch (key) {
         case "w":
             var audio = new Audio("sounds/crash.mp3")
             audio.play()
@@ -49,8 +63,6 @@ function clickEvent() {
             break;
     }
 }
-
-
 
 
 //Calculator higher order function
@@ -108,8 +120,8 @@ function EmployeeRecords(name, age, hasWorkPermit,  languages) {
 }
 
 //Initialize the EmployeeRecords
-var employee = new EmployeeRecords("Jones", 28, true, ["english", "french"])
-employee.moveSuitcase();
+// var employee = new EmployeeRecords("Jones", 28, true, ["english", "french"])
+// employee.moveSuitcase();
 
 
 
